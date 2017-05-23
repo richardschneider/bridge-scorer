@@ -1,0 +1,43 @@
+{
+  "name": "bridge-scorer",
+  "version": "0.0.1",
+  "description": " collection of duplicate bridge scoring algorithms.",
+  "homepage": "https://github.com/richardschneider/bridge-scorer",
+  "bugs": "https://github.com/richardschneider/bridge-scorer/issues",
+  "license": "MIT",
+  "main": "index.js",
+  "author": {
+    "name": "Richard Schneider",
+    "email": "makaretu@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/richardschneider/bridge-scorer"
+  },
+  "keywords": [
+    "bridge",
+    "duplicate",
+    "scoring"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "browserify": "^9.0.8",
+    "chai": "^3.5.0",
+    "glob": "^7.0.6",
+    "gulp": "^3.9.1",
+    "gulp-coveralls": "^0.1.4",
+    "gulp-jshint": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-spawn-mocha": "^2.2.2",
+    "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "mocha": "^3.4.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "test": "mocha test"
+  }
+}
