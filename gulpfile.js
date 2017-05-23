@@ -59,21 +59,22 @@ gulp.task('dist-lib', function(cb) {
 });
 
 gulp.task('dist-test', function (cb) {
-  glob('./test/**/*.js', {}, function (err, files) {
-    var b = browserify({standalone: 'spec'});
-    files.forEach(function (file) {
-        b.add(file);
+    glob('./test/**/*.js', {}, function (err, files) {
+        var b = browserify({standalone: 'spec'});
+        files.forEach(function (file) {
+            b.add(file);
+        });
+
+        pump([
+            b.bundle(),
+            source('bridge-scorer.spec.js'),
+            gulp.dest('./dist/'),
+            buffer(),
+            uglify(),
+            rename({suffix: '.min'}),
+            gulp.dest('./dist/'),    
+        ], cb);
     });
-    b
-        .bundle()
-        .pipe(source('bridge-scorer.spec.js'))
-        .pipe(gulp.dest('./dist'))
-        .pipe(buffer())
-        .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./dist/'))
-        .on('end', function() { cb(); });
-  });
 });
 
 gulp.task('coverage', function () {
