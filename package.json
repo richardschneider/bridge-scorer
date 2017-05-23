@@ -19,21 +19,22 @@
     "duplicate",
     "scoring"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "browserify": "^9.0.8",
+    "browserify": "^14.3.0",
     "chai": "^3.5.0",
     "glob": "^7.0.6",
     "gulp": "^3.9.1",
     "gulp-coveralls": "^0.1.4",
     "gulp-jshint": "^2.0.1",
     "gulp-rename": "^1.2.2",
-    "gulp-spawn-mocha": "^2.2.2",
-    "gulp-uglify": "^2.0.0",
+    "gulp-spawn-mocha": "^3.3.0",
+    "gulp-uglify": "^3.0.0",
+    "istanbul": "^0.4.3",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
     "mocha": "^3.4.1",
+    "pump": "^1.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },

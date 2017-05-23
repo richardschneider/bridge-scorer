@@ -10,6 +10,7 @@ var coveralls = require('gulp-coveralls');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var glob = require('glob');
+var pump = require('pump');
 
 var DEBUG = process.env.NODE_ENV === 'debug',
     CI = process.env.CI === 'true';
@@ -45,15 +46,16 @@ gulp.task('istanbul', function () {
 });
 
 
-gulp.task('dist-lib', function() {
-    return browserify('./index.js', { standalone: 'scorer'})
-        .bundle()
-        .pipe(source('bridge-scorer.js'))
-        .pipe(gulp.dest('./dist/'))
-        .pipe(buffer())
-        .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./dist/'));
+gulp.task('dist-lib', function(cb) {
+    pump([
+        browserify('./index.js', { standalone: 'scorer'}).bundle(),
+        source('bridge-scorer.js'),
+        gulp.dest('./dist/'),
+        buffer(),
+        uglify(),
+        rename({suffix: '.min'}),
+        gulp.dest('./dist/'),    
+    ], cb);
 });
 
 gulp.task('dist-test', function (cb) {
