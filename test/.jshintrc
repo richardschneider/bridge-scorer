@@ -12,7 +12,6 @@
     "boss": true,
     "eqnull": true,
     "node": true,
-    "esversion": 6,
     "globals": {
         "describe"   : false,
         "it"         : false,
