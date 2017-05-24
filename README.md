@@ -58,3 +58,46 @@ Determines the declarors's score based upon the contract, vulernerability and ma
         risk: ''
     };
     var score = scorer.contract(contract, true, 5);
+    
+### scorer.matchpoints(games)
+
+Determines the match points for each pair (NS and EW) based on the played games.
+
+**games** is array of games
+- **contract.declaror** is the seat that played the game ('N', 'S', 'E' or 'W')
+- **score** is the contract score for the game
+
+A passed in game is indicated with with a `score` of `0`; the `contract` is not required.
+
+Each game is assigned the `matchpointsNS` and `matchpointsEW` properties.
+- **value** is the match point value
+
+
+    var games = [
+        { contract: { declaror: 'N' }, score: 90 },
+        { score: 0 } // passed in,
+        { contract: { declaror: 'N' }, score: -50 },
+        { contract: { declaror: 'N' }, score: -50 },
+    ];
+    console.log(scorer.matchpoints(games));
+
+Produces
+
+    [ { contract: { declaror: 'N' },
+        score: 90,
+        matchpointsNS: { value: 6 },
+        matchpointsEW: { value: 0 } },
+      { score: 0,
+        matchpointsNS: { value: 4 },
+        matchpointsEW: { value: 2 } },
+      { contract: { declaror: 'N' },
+        score: -50,
+        matchpointsNS: { value: 1 },
+        matchpointsEW: { value: 5 } },
+      { contract: { declaror: 'N' },
+        score: -50,
+        matchpointsNS: { value: 1 },
+        matchpointsEW: { value: 5 } } ]
+    
+
+ 
