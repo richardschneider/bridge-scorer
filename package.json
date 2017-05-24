@@ -1,6 +1,5 @@
 {
   "name": "bridge-scorer",
-  "version": "0.0.1",
   "description": " collection of duplicate bridge scoring algorithms.",
   "homepage": "https://github.com/richardschneider/bridge-scorer",
   "bugs": "https://github.com/richardschneider/bridge-scorer/issues",
@@ -36,9 +35,11 @@
     "mocha": "^3.4.1",
     "pump": "^1.0.2",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "semantic-release": "^6.3.6"
   },
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   }
 }

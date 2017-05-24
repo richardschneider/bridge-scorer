@@ -18,6 +18,7 @@ script:
 
 after_success:
   - gulp coverage
+  - npm run semantic-release
 
 branches:
   except:
