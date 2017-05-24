@@ -65,7 +65,7 @@ Determines the match points for each pair (NS and EW) based on the played games.
 
 **games** is array of games
 - **contract.declaror** is the seat that played the game ('N', 'S', 'E' or 'W')
-- **score** is the contract score for the game
+- **score** is the [contract score](#scorercontractcontract-vulnerable-made) for the game
 
 A passed in game is indicated with with a `score` of `0`; the `contract` is not required.
 
