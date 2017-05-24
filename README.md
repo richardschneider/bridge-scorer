@@ -21,8 +21,6 @@ Include the package
 
     var scorer = require('bridge-scorer')
     
-    TODO
-    
 ### Browser
 
 Include the package from your project
@@ -35,6 +33,25 @@ Or better yet, from the [unpkg CDN](https://unpkg.com)
 
 This will provide `scorer` as a global object, or `define` it if you are using [AMD](https://en.wikipedia.org/wiki/Asynchronous_module_definition).
 
-    <script>
-        TODO
-    </script>
+## API
+
+### scorer.contract(contract, vulnerable, made)
+
+Determines the declarors's score based upon the contract, vulernerability and made tricks.
+
+**contract** is the declaror's contract 
+- **level** is the number of tricks when added to the book of six tricks will be taken (1-7).
+- **denomination** is the trump suit or notrumps ('S', 'H', 'D', 'C' or 'NT').
+- **risk** is '', 'X' or 'XX'.
+
+**vulnerable** is the declaror's vulernerability (true or false).
+
+**made** is the number of tricks made over the book contract (6) or a negative number indicating the number of tricks down on the contract.
+
+    // 3NT vulnerable making 5 (11 tricks) is 660
+    var contract = {
+        level: 3,
+        denomination: 'NT',
+        risk: ''
+    };
+    var score = scorer.contract(contract, true, 5);
