@@ -36,9 +36,7 @@ Or better yet, from the [unpkg CDN](https://unpkg.com)
 
 This will provide `scorer` as a global object, or `define` it if you are using [AMD](https://en.wikipedia.org/wiki/Asynchronous_module_definition).
 
-## API
-
-### scorer.contract(contract, vulnerable, made)
+## scorer.contract(contract, vulnerable, made)
 
 Determines the declarors's score based upon the contract, vulernerability and made tricks.
 
@@ -51,6 +49,8 @@ Determines the declarors's score based upon the contract, vulernerability and ma
 
 **made** is the number of tricks made over the book contract (6) or a negative number indicating the number of tricks down on the contract.
 
+#### Example
+
     // 3NT vulnerable making 5 (11 tricks) is 660
     var contract = {
         level: 3,
@@ -59,7 +59,7 @@ Determines the declarors's score based upon the contract, vulernerability and ma
     };
     var score = scorer.contract(contract, true, 5);
     
-### scorer.matchpoints(games)
+## scorer.matchpoints(games)
 
 Determines the match points for each pair (NS and EW) based on the played games.
 
@@ -72,7 +72,7 @@ A passed in game is indicated with with a `score` of `0`; the `contract` is not 
 Each game is assigned the `matchpointsNS` and `matchpointsEW` properties.
 - **value** is the match point value
 
-
+#### Example
     var games = [
         { contract: { declaror: 'N' }, score: 90 },
         { score: 0 } // passed in,
@@ -81,7 +81,7 @@ Each game is assigned the `matchpointsNS` and `matchpointsEW` properties.
     ];
     console.log(scorer.matchpoints(games));
 
-Produces
+produces
 
     [ { contract: { declaror: 'N' },
         score: 90,
