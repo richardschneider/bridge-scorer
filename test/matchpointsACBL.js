@@ -21,21 +21,21 @@ describe('Matchpoints ACBL', function() {
         
         scorer.matchpointsACBL(games);
         expect(games).to.have.lengthOf(games.length);
-        expect(games[0]).to.have.property('matchpointsNS').and.eql({value: 2.5});
-        expect(games[1]).to.have.property('matchpointsNS').and.eql({value: 4});
-        expect(games[2]).to.have.property('matchpointsNS').and.eql({value: 6});
-        expect(games[3]).to.have.property('matchpointsNS').and.eql({value: 2.5});
-        expect(games[4]).to.have.property('matchpointsNS').and.eql({value: 5});
-        expect(games[5]).to.have.property('matchpointsNS').and.eql({value: 0});
-        expect(games[6]).to.have.property('matchpointsNS').and.eql({value: 1});
+        expect(games[0]).to.have.property('matchpointsNS').and.eql({value: 2.5, rank: '4='});
+        expect(games[1]).to.have.property('matchpointsNS').and.eql({value: 4, rank: '3'});
+        expect(games[2]).to.have.property('matchpointsNS').and.eql({value: 6, rank: '1'});
+        expect(games[3]).to.have.property('matchpointsNS').and.eql({value: 2.5, rank: '4='});
+        expect(games[4]).to.have.property('matchpointsNS').and.eql({value: 5, rank: '2'});
+        expect(games[5]).to.have.property('matchpointsNS').and.eql({value: 0, rank: '7'});
+        expect(games[6]).to.have.property('matchpointsNS').and.eql({value: 1, rank: '6'});
 
-        expect(games[0]).to.have.property('matchpointsEW').and.eql({value: 3.5});
-        expect(games[1]).to.have.property('matchpointsEW').and.eql({value: 2});
-        expect(games[2]).to.have.property('matchpointsEW').and.eql({value: 0});
-        expect(games[3]).to.have.property('matchpointsEW').and.eql({value: 3.5});
-        expect(games[4]).to.have.property('matchpointsEW').and.eql({value: 1});
-        expect(games[5]).to.have.property('matchpointsEW').and.eql({value: 6});
-        expect(games[6]).to.have.property('matchpointsEW').and.eql({value: 5});
+        expect(games[0]).to.have.property('matchpointsEW').and.eql({value: 3.5, rank: '3='});
+        expect(games[1]).to.have.property('matchpointsEW').and.eql({value: 2, rank: '5'});
+        expect(games[2]).to.have.property('matchpointsEW').and.eql({value: 0, rank: '7'});
+        expect(games[3]).to.have.property('matchpointsEW').and.eql({value: 3.5, rank: '3='});
+        expect(games[4]).to.have.property('matchpointsEW').and.eql({value: 1, rank: '6'});
+        expect(games[5]).to.have.property('matchpointsEW').and.eql({value: 6, rank: '1'});
+        expect(games[6]).to.have.property('matchpointsEW').and.eql({value: 5, rank: '2'});
     });
  
 });

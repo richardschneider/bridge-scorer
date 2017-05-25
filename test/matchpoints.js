@@ -29,15 +29,15 @@ describe('Matchpoints', function() {
         
         scorer.matchpoints(games);
         expect(games).to.have.lengthOf(games.length);
-        expect(games[0]).to.have.property('matchpointsNS').and.eql({value: 4});
-        expect(games[1]).to.have.property('matchpointsNS').and.eql({value: 6});
-        expect(games[2]).to.have.property('matchpointsNS').and.eql({value: 2});
-        expect(games[3]).to.have.property('matchpointsNS').and.eql({value: 0});
+        expect(games[0]).to.have.property('matchpointsNS').and.eql({value: 4, rank: '2'});
+        expect(games[1]).to.have.property('matchpointsNS').and.eql({value: 6, rank: '1'});
+        expect(games[2]).to.have.property('matchpointsNS').and.eql({value: 2, rank: '3'});
+        expect(games[3]).to.have.property('matchpointsNS').and.eql({value: 0, rank: '4'});
 
-        expect(games[0]).to.have.property('matchpointsEW').and.eql({value: 2});
-        expect(games[1]).to.have.property('matchpointsEW').and.eql({value: 0});
-        expect(games[2]).to.have.property('matchpointsEW').and.eql({value: 4});
-        expect(games[3]).to.have.property('matchpointsEW').and.eql({value: 6});
+        expect(games[0]).to.have.property('matchpointsEW').and.eql({value: 2, rank: '3'});
+        expect(games[1]).to.have.property('matchpointsEW').and.eql({value: 0, rank: '4'});
+        expect(games[2]).to.have.property('matchpointsEW').and.eql({value: 4, rank: '2'});
+        expect(games[3]).to.have.property('matchpointsEW').and.eql({value: 6, rank: '1'});
     });
     
     it('scores a 2-way tie', function() {
@@ -50,15 +50,15 @@ describe('Matchpoints', function() {
         
         scorer.matchpoints(games);
         expect(games).to.have.lengthOf(games.length);
-        expect(games[0]).to.have.property('matchpointsNS').and.eql({value: 6});
-        expect(games[1]).to.have.property('matchpointsNS').and.eql({value: 1});
-        expect(games[2]).to.have.property('matchpointsNS').and.eql({value: 1});
-        expect(games[3]).to.have.property('matchpointsNS').and.eql({value: 4});
+        expect(games[0]).to.have.property('matchpointsNS').and.eql({value: 6, rank: '1'});
+        expect(games[1]).to.have.property('matchpointsNS').and.eql({value: 1, rank: '3='});
+        expect(games[2]).to.have.property('matchpointsNS').and.eql({value: 1, rank: '3='});
+        expect(games[3]).to.have.property('matchpointsNS').and.eql({value: 4, rank: '2'});
 
-        expect(games[0]).to.have.property('matchpointsEW').and.eql({value: 0});
-        expect(games[1]).to.have.property('matchpointsEW').and.eql({value: 5});
-        expect(games[2]).to.have.property('matchpointsEW').and.eql({value: 5});
-        expect(games[3]).to.have.property('matchpointsEW').and.eql({value: 2});
+        expect(games[0]).to.have.property('matchpointsEW').and.eql({value: 0, rank: '4'});
+        expect(games[1]).to.have.property('matchpointsEW').and.eql({value: 5, rank: '1='});
+        expect(games[2]).to.have.property('matchpointsEW').and.eql({value: 5, rank: '1='});
+        expect(games[3]).to.have.property('matchpointsEW').and.eql({value: 2, rank: '3'});
     });
 
     it('scores a 3-way tie', function() {
@@ -71,15 +71,15 @@ describe('Matchpoints', function() {
         
         scorer.matchpoints(games);
         expect(games).to.have.lengthOf(games.length);
-        expect(games[0]).to.have.property('matchpointsNS').and.eql({value: 6});
-        expect(games[1]).to.have.property('matchpointsNS').and.eql({value: 2});
-        expect(games[2]).to.have.property('matchpointsNS').and.eql({value: 2});
-        expect(games[3]).to.have.property('matchpointsNS').and.eql({value: 2});
+        expect(games[0]).to.have.property('matchpointsNS').and.eql({value: 6, rank: '1'});
+        expect(games[1]).to.have.property('matchpointsNS').and.eql({value: 2, rank: '2='});
+        expect(games[2]).to.have.property('matchpointsNS').and.eql({value: 2, rank: '2='});
+        expect(games[3]).to.have.property('matchpointsNS').and.eql({value: 2, rank: '2='});
 
-        expect(games[0]).to.have.property('matchpointsEW').and.eql({value: 0});
-        expect(games[1]).to.have.property('matchpointsEW').and.eql({value: 4});
-        expect(games[2]).to.have.property('matchpointsEW').and.eql({value: 4});
-        expect(games[3]).to.have.property('matchpointsEW').and.eql({value: 4});
+        expect(games[0]).to.have.property('matchpointsEW').and.eql({value: 0, rank: '4'});
+        expect(games[1]).to.have.property('matchpointsEW').and.eql({value: 4, rank: '1='});
+        expect(games[2]).to.have.property('matchpointsEW').and.eql({value: 4, rank: '1='});
+        expect(games[3]).to.have.property('matchpointsEW').and.eql({value: 4, rank: '1='});
     });
 
     it('scores a passed in game', function() {
@@ -91,16 +91,17 @@ describe('Matchpoints', function() {
         ];
         
         scorer.matchpoints(games);
+        console.log(games)
         expect(games).to.have.lengthOf(games.length);
-        expect(games[0]).to.have.property('matchpointsNS').and.eql({value: 6});
-        expect(games[1]).to.have.property('matchpointsNS').and.eql({value: 4});
-        expect(games[2]).to.have.property('matchpointsNS').and.eql({value: 1});
-        expect(games[3]).to.have.property('matchpointsNS').and.eql({value: 1});
+        expect(games[0]).to.have.property('matchpointsNS').and.eql({value: 6, rank: '1'});
+        expect(games[1]).to.have.property('matchpointsNS').and.eql({value: 4, rank: '2'});
+        expect(games[2]).to.have.property('matchpointsNS').and.eql({value: 1, rank: '3='});
+        expect(games[3]).to.have.property('matchpointsNS').and.eql({value: 1, rank: '3='});
 
-        expect(games[0]).to.have.property('matchpointsEW').and.eql({value: 0});
-        expect(games[1]).to.have.property('matchpointsEW').and.eql({value: 2});
-        expect(games[2]).to.have.property('matchpointsEW').and.eql({value: 5});
-        expect(games[3]).to.have.property('matchpointsEW').and.eql({value: 5});
+        expect(games[0]).to.have.property('matchpointsEW').and.eql({value: 0, rank: '4'});
+        expect(games[1]).to.have.property('matchpointsEW').and.eql({value: 2, rank: '3'});
+        expect(games[2]).to.have.property('matchpointsEW').and.eql({value: 5, rank: '1='});
+        expect(games[3]).to.have.property('matchpointsEW').and.eql({value: 5, rank: '1='});
     });
     
     it('ignores games with no contract, declaror or score', function() {
@@ -116,10 +117,10 @@ describe('Matchpoints', function() {
         
         scorer.matchpoints(games);
         expect(games).to.have.lengthOf(games.length);
-        expect(games[0]).to.have.property('matchpointsNS').and.eql({value: 4});
-        expect(games[1]).to.have.property('matchpointsNS').and.eql({value: 6});
-        expect(games[2]).to.have.property('matchpointsNS').and.eql({value: 2});
-        expect(games[3]).to.have.property('matchpointsNS').and.eql({value: 0});
+        expect(games[0]).to.have.property('matchpointsNS').and.eql({value: 4, rank: '2'});
+        expect(games[1]).to.have.property('matchpointsNS').and.eql({value: 6, rank: '1'});
+        expect(games[2]).to.have.property('matchpointsNS').and.eql({value: 2, rank: '3'});
+        expect(games[3]).to.have.property('matchpointsNS').and.eql({value: 0, rank: '4'});
         expect(games[4]).to.not.have.property('matchpointsNS');
         expect(games[5]).to.not.have.property('matchpointsNS');
         expect(games[6]).to.not.have.property('matchpointsNS');

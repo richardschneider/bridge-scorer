@@ -71,6 +71,7 @@ A passed in game is indicated with with a `score` of `0`; the `contract` is not 
 
 Each game is assigned the `matchpointsNS` and `matchpointsEW` properties.
 - **value** is the match point value
+- **rank** is the order in the competition, see [Standard competition ranking ("1224" ranking)](https://en.wikipedia.org/wiki/Ranking). Ties are indicated with an 'x='.
 
 #### Example
     var games = [
@@ -85,19 +86,19 @@ produces
 
     [ { contract: { declaror: 'N' },
         score: 90,
-        matchpointsNS: { value: 6 },
-        matchpointsEW: { value: 0 } },
+        matchpointsNS: { value: 6, rank: '1' },
+        matchpointsEW: { value: 0, rank: '4' } },
       { score: 0,
-        matchpointsNS: { value: 4 },
-        matchpointsEW: { value: 2 } },
+        matchpointsNS: { value: 4, rank: '2' },
+        matchpointsEW: { value: 2, rank: '3' } },
       { contract: { declaror: 'N' },
         score: -50,
-        matchpointsNS: { value: 1 },
-        matchpointsEW: { value: 5 } },
+        matchpointsNS: { value: 1, rank: '3=' },
+        matchpointsEW: { value: 5, rank: '1=' } },
       { contract: { declaror: 'N' },
         score: -50,
-        matchpointsNS: { value: 1 },
-        matchpointsEW: { value: 5 } } ]
+        matchpointsNS: { value: 1, rank: '3=' },
+        matchpointsEW: { value: 5, rank: '1=' } } ]
     
  ## scorer.matchpointsACBL(games)
  
