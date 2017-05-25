@@ -129,5 +129,22 @@ describe('Contract Tricks', function() {
         expect(scorer.contractTricks(contract, true, 9)).to.equal(600);
         expect(scorer.contractTricks(contract, true, 10)).to.equal(630);
     });
+});
 
+describe('Contract Result', function() {
+
+    it('is exported', function() {
+        expect(scorer.contractResult).to.be.a('function');
+    });
+
+    it('scores over/under trick count', function() {
+        var contract = {
+            level: 3,
+            denomination: 'NT',
+            risk: ''
+        };
+        expect(scorer.contractResult(contract, true, -1)).to.equal(-100);
+        expect(scorer.contractResult(contract, true, 0)).to.equal(600);
+        expect(scorer.contractResult(contract, true, 1)).to.equal(630);
+    });
 });
