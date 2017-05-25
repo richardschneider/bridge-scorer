@@ -91,7 +91,6 @@ describe('Matchpoints', function() {
         ];
         
         scorer.matchpoints(games);
-        console.log(games)
         expect(games).to.have.lengthOf(games.length);
         expect(games[0]).to.have.property('matchpointsNS').and.eql({value: 6, rank: '1'});
         expect(games[1]).to.have.property('matchpointsNS').and.eql({value: 4, rank: '2'});
@@ -125,5 +124,28 @@ describe('Matchpoints', function() {
         expect(games[5]).to.not.have.property('matchpointsNS');
         expect(games[6]).to.not.have.property('matchpointsNS');
     });
+    
+    it('actual session board', function () {
+        var games = [
+            { contract: { declaror: 'N' }, score: -50 },
+            { contract: { declaror: 'N' }, score: 150 },
+            { contract: { declaror: 'N' }, score: 120 },
+            { contract: { declaror: 'N' }, score: 120 },
+            { contract: { declaror: 'S' }, score: 110 },
+            { contract: { declaror: 'N' }, score: -100 },
+            { contract: { declaror: 'N' }, score: -50 },
+            { contract: { declaror: 'N' }, score: 120 }
+        ];
+        scorer.matchpoints(games);
+        expect(games[0].matchpointsNS.value).to.equal(3);
+        expect(games[1].matchpointsNS.value).to.equal(14);
+        expect(games[2].matchpointsNS.value).to.equal(10);
+        expect(games[3].matchpointsNS.value).to.equal(10);
+        expect(games[4].matchpointsNS.value).to.equal(6);
+        expect(games[5].matchpointsNS.value).to.equal(0);
+        expect(games[6].matchpointsNS.value).to.equal(3);
+        expect(games[7].matchpointsNS.value).to.equal(10);
+    });
+
 
 });
