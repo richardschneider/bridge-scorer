@@ -64,6 +64,30 @@ Determines the declarors's score based upon the contract, vulernerability and ma
     };
     var score = scorer.contractMade(contract, true, 5);
     
+## scorer.contractTricks(contract, vulnerable, tricks)
+
+Determines the declarors's score based upon the contract, vulernerability and absolute tricks.
+
+**contract** is the declaror's contract 
+- **level** is the number of tricks when added to the book of six tricks will be taken (1-7).
+- **denomination** is the trump suit or notrumps ('S', 'H', 'D', 'C' or 'NT').
+- **risk** is '', 'X' or 'XX'.
+
+**vulnerable** is the declaror's vulernerability (true or false).
+
+**tricks** is the number of tricks achieved by the declaror
+
+#### Example
+
+    // 3NT vulnerable with 11 tricks is 660
+    var contract = {
+        level: 3,
+        denomination: 'NT',
+        risk: ''
+    };
+    var score = scorer.contractMade(contract, true, 11);
+    
+
 ## scorer.matchpoints(games)
 
 Determines the match points for each pair (NS and EW) based on the played games. This is the international standard measurement of achievement in a pairs competition; wins score 2 points and ties 1 point.

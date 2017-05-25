@@ -112,3 +112,22 @@ describe('Contract Made', function() {
     });
 
 });
+
+describe('Contract Tricks', function() {
+
+    it('is exported', function() {
+        expect(scorer.contractTricks).to.be.a('function');
+    });
+
+    it('scores absolute trick count', function() {
+        var contract = {
+            level: 3,
+            denomination: 'NT',
+            risk: ''
+        };
+        expect(scorer.contractTricks(contract, true, 8)).to.equal(-100);
+        expect(scorer.contractTricks(contract, true, 9)).to.equal(600);
+        expect(scorer.contractTricks(contract, true, 10)).to.equal(630);
+    });
+
+});
