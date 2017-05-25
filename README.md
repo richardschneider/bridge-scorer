@@ -41,7 +41,7 @@ Or better yet, from the [unpkg CDN](https://unpkg.com)
 
 This will provide `scorer` as a global object, or `define` it if you are using [AMD](https://en.wikipedia.org/wiki/Asynchronous_module_definition).
 
-## scorer.contract(contract, vulnerable, made)
+## scorer.contractMade(contract, vulnerable, made)
 
 Determines the declarors's score based upon the contract, vulernerability and made tricks.
 
@@ -62,7 +62,7 @@ Determines the declarors's score based upon the contract, vulernerability and ma
         denomination: 'NT',
         risk: ''
     };
-    var score = scorer.contract(contract, true, 5);
+    var score = scorer.contractMade(contract, true, 5);
     
 ## scorer.matchpoints(games)
 
