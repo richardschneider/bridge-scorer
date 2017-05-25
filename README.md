@@ -72,6 +72,7 @@ A passed in game is indicated with with a `score` of `0`; the `contract` is not 
 Each game is assigned the `matchpointsNS` and `matchpointsEW` properties.
 - **value** is the match point value
 - **rank** is the order in the competition, see [Standard competition ranking ("1224" ranking)](https://en.wikipedia.org/wiki/Ranking). Ties are indicated with an 'x='.
+- **percentage** is the percentage (0-100) of the maximum number of match points that can be won
 
 #### Example
     var games = [
@@ -86,19 +87,19 @@ produces
 
     [ { contract: { declaror: 'N' },
         score: 90,
-        matchpointsNS: { value: 6, rank: '1' },
-        matchpointsEW: { value: 0, rank: '4' } },
+        matchpointsNS: { value: 6, rank: '1', percentage: 100 },
+        matchpointsEW: { value: 0, percentage: 0, rank: '4' } },
       { score: 0,
-        matchpointsNS: { value: 4, rank: '2' },
-        matchpointsEW: { value: 2, rank: '3' } },
+        matchpointsNS: { value: 4, rank: '2', percentage: 66.66666666666666 },
+        matchpointsEW: { value: 2, percentage: 33.33333333333333, rank: '3' } },
       { contract: { declaror: 'N' },
         score: -50,
-        matchpointsNS: { value: 1, rank: '3=' },
-        matchpointsEW: { value: 5, rank: '1=' } },
+        matchpointsNS: { value: 1, rank: '3=', percentage: 16.666666666666664 },
+        matchpointsEW: { value: 5, percentage: 83.33333333333334, rank: '1=' } },
       { contract: { declaror: 'N' },
         score: -50,
-        matchpointsNS: { value: 1, rank: '3=' },
-        matchpointsEW: { value: 5, rank: '1=' } } ]
+        matchpointsNS: { value: 1, rank: '3=', percentage: 16.666666666666664 },
+        matchpointsEW: { value: 5, percentage: 83.33333333333334, rank: '1=' } } ]
     
  ## scorer.matchpointsACBL(games)
  

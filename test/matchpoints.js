@@ -167,5 +167,26 @@ describe('Matchpoints', function() {
         expect(games[2].matchpointsEW.rank).to.equal('1=');
         expect(games[3].matchpointsEW.rank).to.equal('1=');
     });
+    
+    it('determines percentage', function() {
+        var games = [
+            { contract: { declaror: 'N' }, score: 90 },
+            { score: 0 },
+            { contract: { declaror: 'N' }, score: -50 },
+            { contract: { declaror: 'N' }, score: -50 },
+        ];
+        
+        scorer.matchpoints(games);
+        expect(games).to.have.lengthOf(games.length);
+        expect(games[0].matchpointsNS.percentage.toFixed(2)).to.equal('100.00');
+        expect(games[1].matchpointsNS.percentage.toFixed(2)).to.equal('66.67');
+        expect(games[2].matchpointsNS.percentage.toFixed(2)).to.equal('16.67');
+        expect(games[3].matchpointsNS.percentage.toFixed(2)).to.equal('16.67');
+
+        expect(games[0].matchpointsEW.percentage.toFixed(2)).to.equal('0.00');
+        expect(games[1].matchpointsEW.percentage.toFixed(2)).to.equal('33.33');
+        expect(games[2].matchpointsEW.percentage.toFixed(2)).to.equal('83.33');
+        expect(games[3].matchpointsEW.percentage.toFixed(2)).to.equal('83.33');
+    });
 
 });

@@ -93,4 +93,29 @@ describe('Matchpoints ACBL', function() {
         expect(games[8].matchpointsNS.value).to.equal(0);
     });
  
+    it('determines percentage', function() {
+        // see https://www.funbridge.com/en/help_faq/touch/scores
+        var games = [
+            { contract: { declaror: 'N' }, score: 650 },
+            { contract: { declaror: 'N' }, score: 620 },
+            { contract: { declaror: 'N' }, score: 620 },
+            { contract: { declaror: 'N' }, score: 620 },
+            { contract: { declaror: 'N' }, score: 620 },
+            { contract: { declaror: 'N' }, score: 170 },
+            { contract: { declaror: 'N' }, score: 170 },
+            { contract: { declaror: 'N' }, score: 140 },
+            { contract: { declaror: 'N' }, score: 110 }
+        ];
+        scorer.matchpointsACBL(games);
+        expect(games[0].matchpointsNS.percentage.toFixed(2)).to.equal('100.00');
+        expect(games[1].matchpointsNS.percentage.toFixed(2)).to.equal('68.75');
+        expect(games[2].matchpointsNS.percentage.toFixed(2)).to.equal('68.75');
+        expect(games[3].matchpointsNS.percentage.toFixed(2)).to.equal('68.75');
+        expect(games[4].matchpointsNS.percentage.toFixed(2)).to.equal('68.75');
+        expect(games[5].matchpointsNS.percentage.toFixed(2)).to.equal('31.25');
+        expect(games[6].matchpointsNS.percentage.toFixed(2)).to.equal('31.25');
+        expect(games[7].matchpointsNS.percentage.toFixed(2)).to.equal('12.50');
+        expect(games[8].matchpointsNS.percentage.toFixed(2)).to.equal('0.00');
+    });
+
 });
