@@ -61,7 +61,7 @@ Determines the declarors's score based upon the contract, vulernerability and ma
     
 ## scorer.matchpoints(games)
 
-Determines the match points for each pair (NS and EW) based on the played games. This is a standard measurement of achievement in a pairs competition.
+Determines the match points for each pair (NS and EW) based on the played games. This is the international standard measurement of achievement in a pairs competition; wins score 2 points and ties 1 point.
 
 **games** is array of games
 - **contract.declaror** is the seat that played the game ('N', 'S', 'E' or 'W')
@@ -100,8 +100,9 @@ produces
         score: -50,
         matchpointsNS: { value: 1, rank: '3=', percentage: 16.666666666666664 },
         matchpointsEW: { value: 5, percentage: 83.33333333333334, rank: '1=' } } ]
-    
+
+
  ## scorer.matchpointsACBL(games)
  
- The [American version](http://www.acbl.org/learn_page/how-to-play-bridge/how-to-keep-score/) of scoring match points. Same as [scorer.matchpoints](#scorermatchpointsgames) but different values are assigned to wins and ties.
+ The [North American version](http://www.acbl.org/learn_page/how-to-play-bridge/how-to-keep-score/) of scoring match points. Same as [scorer.matchpoints](#scorermatchpointsgames) but different values are assigned to wins (1) and ties (0.5).
  
