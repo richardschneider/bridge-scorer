@@ -10,6 +10,11 @@ A collection of duplicate bridge scoring algorithms.
 The [change log](https://github.com/richardschneider/bridge-scorer/releases) is automatically produced with
 the help of [semantic release](https://github.com/semantic-release/semantic-release).
 
+## Features
+
+- scores a contract
+- scores a pairs session with match points (international or North American), rank and percentage 
+
 ## Getting started
 
 **bridge-scorer** is available for both Node.js and the browser.  Most modern browsers are supported.  If you want to know if your browser is compatible, run the [online test suite](https://rawgit.com/richardschneider/bridge-scorer/master/test/index.html).
