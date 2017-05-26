@@ -159,7 +159,7 @@ produces
  
 ## scorer.impPairs(games)
 
-Determines the internation match points for each pair (NS and EW) based on the played games of a single board.  Each opponent's score is subtracted from your score and converted to IMPS. The IMPS are then summed and divided by the number of opponents.
+Determines the international match points for each pair (NS and EW) based on the played games of a single board.  Each opponent's score is subtracted from your score and converted to IMPS. The IMPS are then summed and divided by the number of opponents.
 
 **games** is an array of games for a board
 - **contract.declaror** is the seat that played the game ('N', 'S', 'E' or 'W')
@@ -168,7 +168,7 @@ Determines the internation match points for each pair (NS and EW) based on the p
 A passed in game is indicated with with a `score` of `0`; the `contract` is not required.
 
 Each game is assigned the `impsNS` and `impsEW` properties.
-- **value** is the internation match point value
+- **value** is the international match point value
 
 #### Example
     var games = [
