@@ -112,9 +112,9 @@ Determines the declarors's score based upon the contract, vulernerability and re
     
 ## scorer.matchpoints(games)
 
-Determines the match points for each pair (NS and EW) based on the played games. This is the international standard measurement of achievement in a pairs competition; wins score 2 points and ties 1 point.
+Determines the match points for each pair (NS and EW) based on the played games of a single board. This is the international standard measurement of achievement in a pairs competition; wins score 2 points and ties 1 point.
 
-**games** is array of games
+**games** is an array of games for a board
 - **contract.declaror** is the seat that played the game ('N', 'S', 'E' or 'W')
 - **score** is the [contract score](#scorercontractcontract-vulnerable-made) for the game
 
@@ -157,3 +157,49 @@ produces
  
  The [North American version](http://www.acbl.org/learn_page/how-to-play-bridge/how-to-keep-score/) of scoring match points. Same as [scorer.matchpoints](#scorermatchpointsgames) but different values are assigned to wins (1) and ties (0.5).
  
+## scorer.impPairs(games)
+
+Determines the internation match points for each pair (NS and EW) based on the played games of a single board.  Each opponent's score is subtracted from your score and converted to IMPS. The IMPS are then summed and divided by the number of opponents.
+
+**games** is an array of games for a board
+- **contract.declaror** is the seat that played the game ('N', 'S', 'E' or 'W')
+- **score** is the [contract score](#scorercontractcontract-vulnerable-made) for the game
+
+A passed in game is indicated with with a `score` of `0`; the `contract` is not required.
+
+Each game is assigned the `impsNS` and `impsEW` properties.
+- **value** is the internation match point value
+
+#### Example
+    var games = [
+        { contract: { declaror: 'S' }, score: 620 },
+        { contract: { declaror: 'S' }, score: 170 },
+        { contract: { declaror: 'S' }, score: 140 },
+        { contract: { declaror: 'S' }, score: 140 },
+        { contract: { declaror: 'S' }, score: -100 }
+    ];
+  
+    console.log(scorer.impsPairs(games));
+
+produces
+
+    [ { contract: { declaror: 'S' },
+        score: 620,
+        impsNS: { value: 10.5 },
+        impsEW: { value: -10.5 } },
+      { contract: { declaror: 'S' },
+        score: 170,
+        impsNS: { value: -0.25 },
+        impsEW: { value: 0.25 } },
+      { contract: { declaror: 'S' },
+        score: 140,
+        impsNS: { value: -1.25 },
+        impsEW: { value: 1.25 } },
+      { contract: { declaror: 'S' },
+        score: 140,
+        impsNS: { value: -1.25 },
+        impsEW: { value: 1.25 } },
+      { contract: { declaror: 'S' },
+        score: -100,
+        impsNS: { value: -7.75 },
+        impsEW: { value: 7.75 } } ]
