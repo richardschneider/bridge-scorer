@@ -206,7 +206,7 @@ produces
         impsNS: { value: -7.75 },
         impsEW: { value: 7.75 } } ]
         
-## scorer.butlerPairs(games)
+## scorer.butler(games)
 
 Butler scoring is a way of scoring a pair in a way which is closer to teams scoring. On a board, a datum is calculated from all the results, and your score is the IMP score for your result compared to the datum.
 
@@ -228,7 +228,7 @@ Each game is assigned the `impsNS` and `impsEW` properties.
         { contract: { declaror: 'E' }, score: 170 },
         { contract: { declaror: 'E' }, score: 200 }
     ];
-    var datumNS = scorer.butlerPairs(games);
+    var datumNS = scorer.butler(games);
     console.log("datum NS " + datumNS);
     console.log(games)
 

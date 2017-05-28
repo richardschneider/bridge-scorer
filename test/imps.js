@@ -48,7 +48,7 @@ describe('IMPs', function() {
                 { contract: { declaror: 'N' }, score: 170 },
                 { contract: { declaror: 'S' }, score: 200 }
             ];
-            var datumNS = scorer.butlerPairs(games);
+            var datumNS = scorer.butler(games);
             expect(datumNS).to.equal(340);
         });
 
@@ -62,7 +62,7 @@ describe('IMPs', function() {
                 { contract: { declaror: 'E' }, score: 170 },
                 { contract: { declaror: 'E' }, score: 200 }
             ];
-            var datumNS = scorer.butlerPairs(games);
+            var datumNS = scorer.butler(games);
             expect(datumNS).to.equal(-300);
         });
 
@@ -76,7 +76,7 @@ describe('IMPs', function() {
                 { contract: { declaror: 'E' }, score: 170 },
                 { contract: { declaror: 'E' }, score: 200 }
             ];
-            scorer.butlerPairs(games);
+            scorer.butler(games);
             expect(games[0].impsNS.value).to.equal(-8);
             expect(games[1].impsNS.value).to.equal(4);
             expect(games[2].impsNS.value).to.equal(-15);
