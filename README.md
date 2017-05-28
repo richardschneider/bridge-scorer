@@ -13,7 +13,8 @@ the help of [semantic release](https://github.com/semantic-release/semantic-rele
 ## Features
 
 - scores a contract
-- scores a pairs session with match points (international or North American), rank and percentage 
+- scores a pairs session with match points (international or North American), rank and percentage
+- various IMP scoring algorithms for pairs (BBO, Butler) and teams
 
 ## Getting started
 
@@ -153,13 +154,13 @@ produces
         matchpointsEW: { value: 5, percentage: 83.33333333333334, rank: '1=' } } ]
 
 
- ## scorer.matchpointsACBL(games)
+## scorer.matchpointsACBL(games)
  
  The [North American version](http://www.acbl.org/learn_page/how-to-play-bridge/how-to-keep-score/) of scoring match points. Same as [scorer.matchpoints](#scorermatchpointsgames) but different values are assigned to wins (1) and ties (0.5).
  
 ## scorer.impPairs(games)
 
-Determines the international match points for each pair (NS and EW) based on the played games of a single board.  Each opponent's score is subtracted from your score and converted to IMPS. The IMPS are then summed and divided by the number of opponents.
+Determines the international match points for each pair (NS and EW) based on the played games of a single board.  Each opponent's score is subtracted from your score and converted to IMPS. The IMPS are then summed and divided by the number of opponents. Also known as  Cross-IMPs.
 
 **games** is an array of games for a board
 - **contract.declaror** is the seat that played the game ('N', 'S', 'E' or 'W')
@@ -203,3 +204,57 @@ produces
         score: -100,
         impsNS: { value: -7.75 },
         impsEW: { value: 7.75 } } ]
+        
+## scorer.butlerPairs(games)
+
+Butler scoring is a way of scoring a pair in a way which is closer to teams scoring. On a board, a datum is calculated from all the results, and your score is the IMP score for your result compared to the datum.
+
+**games** is an array of games for a board
+- **contract.declaror** is the seat that played the game ('N', 'S', 'E' or 'W')
+- **score** is the [contract score](#scorercontractcontract-vulnerable-made) for the game
+
+A passed in game is indicated with with a `score` of `0`; the `contract` is not required.
+
+Each game is assigned the `impsNS` and `impsEW` properties.
+- **value** is the international match point value
+
+#### Example
+    var games = [
+        { contract: { declaror: 'W' }, score: 650 },
+        { contract: { declaror: 'W' }, score: 170 },
+        { contract: { declaror: 'W' }, score: 1440 },
+        { contract: { declaror: 'E' }, score: -100 },
+        { contract: { declaror: 'E' }, score: 170 },
+        { contract: { declaror: 'E' }, score: 200 }
+    ];
+    var datumNS = scorer.butlerPairs(games);
+    console.log("datum NS " + datumNS);
+    console.log(games)
+
+produces
+
+    datum NS -300
+    [ { contract: { declaror: 'W' },
+        score: 650,
+        impsNS: { value: -8 },
+        impsEW: { value: 8 } },
+      { contract: { declaror: 'W' },
+        score: 170,
+        impsNS: { value: 4 },
+        impsEW: { value: -4 } },
+      { contract: { declaror: 'W' },
+        score: 1440,
+        impsNS: { value: -15 },
+        impsEW: { value: 15 } },
+      { contract: { declaror: 'E' },
+        score: -100,
+        impsNS: { value: 9 },
+        impsEW: { value: -9 } },
+      { contract: { declaror: 'E' },
+        score: 170,
+        impsNS: { value: 4 },
+        impsEW: { value: -4 } },
+      { contract: { declaror: 'E' },
+        score: 200,
+        impsNS: { value: 3 },
+        impsEW: { value: -3 } } ]

@@ -16,7 +16,13 @@
   "keywords": [
     "bridge",
     "duplicate",
-    "scoring"
+    "scoring",
+    "pairs",
+    "teams",
+    "matchpoints",
+    "imps",
+    "butler",
+    "cross-imps"
   ],
   "dependencies": {},
   "devDependencies": {
