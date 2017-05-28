@@ -13,8 +13,9 @@ the help of [semantic release](https://github.com/semantic-release/semantic-rele
 ## Features
 
 - scores a contract
-- scores a pairs session with match points (international or North American), rank and percentage
-- various IMP scoring algorithms for pairs (BBO, Butler) and teams
+- scores a pairs session with 
+  - match points (international or North American), rank and percentage
+  - IMPS (Bulter or Cross-IMPS)
 
 ## Getting started
 
@@ -158,9 +159,9 @@ produces
  
  The [North American version](http://www.acbl.org/learn_page/how-to-play-bridge/how-to-keep-score/) of scoring match points. Same as [scorer.matchpoints](#scorermatchpointsgames) but different values are assigned to wins (1) and ties (0.5).
  
-## scorer.impPairs(games)
+## scorer.crossImps(games)
 
-Determines the international match points for each pair (NS and EW) based on the played games of a single board.  Each opponent's score is subtracted from your score and converted to IMPS. The IMPS are then summed and divided by the number of opponents. Also known as  Cross-IMPs.
+Determines the international match points for each pair (NS and EW) based on the played games of a single board.  Each opponent's score is subtracted from your score and converted to IMPS. The IMPS are then summed and divided by the number of opponents. 
 
 **games** is an array of games for a board
 - **contract.declaror** is the seat that played the game ('N', 'S', 'E' or 'W')
@@ -180,7 +181,7 @@ Each game is assigned the `impsNS` and `impsEW` properties.
         { contract: { declaror: 'S' }, score: -100 }
     ];
   
-    console.log(scorer.impsPairs(games));
+    console.log(scorer.crossImps(games));
 
 produces
 

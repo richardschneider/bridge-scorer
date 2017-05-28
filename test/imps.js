@@ -24,7 +24,7 @@ describe('IMPs', function() {
         expect(imps.toImps(-50000)).to.equal(-24);
     });
 
-    it('scores paris', function() {
+    it('scores cross imps', function() {
         // http://bridge-tips.co.il/wp-content/uploads/2012/05/scoring.pdf
         var games = [
             { contract: { declaror: 'S' }, score: 620 },
@@ -33,7 +33,7 @@ describe('IMPs', function() {
             { contract: { declaror: 'S' }, score: 140 },
             { contract: { declaror: 'S' }, score: -100 }
         ];
-        scorer.impsPairs(games);
+        scorer.crossImps(games);
         expect(games[0].impsNS.value.toFixed(2)).to.equal('10.50');
         expect(games[1].impsNS.value.toFixed(2)).to.equal('-0.25');
         expect(games[2].impsNS.value.toFixed(2)).to.equal('-1.25');
