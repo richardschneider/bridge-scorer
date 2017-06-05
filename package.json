@@ -27,7 +27,7 @@
   "dependencies": {},
   "devDependencies": {
     "browserify": "^14.3.0",
-    "chai": "^3.5.0",
+    "chai": "^4.0.2",
     "glob": "^7.0.6",
     "gulp": "^3.9.1",
     "gulp-coveralls": "^0.1.4",
