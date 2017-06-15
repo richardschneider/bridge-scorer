@@ -9,3 +9,4 @@ scorer.matchpoints = require('./lib/matchpoints').standard;
 scorer.matchpointsACBL = require('./lib/matchpoints').ACBL;
 scorer.crossImps = require('./lib/imps').crossImps;
 scorer.butler = require('./lib/imps').butler;
+scorer.rank = require('./lib/rank');

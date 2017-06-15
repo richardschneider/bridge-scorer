@@ -112,6 +112,33 @@ Determines the declarors's score based upon the contract, vulernerability and re
     };
     var score = scorer.contractMade(contract, true, 2);
     
+## scorer.rank(competitors)
+
+Assigns the rank to each competitor; see [Standard competition ranking ("1224" ranking)](https://en.wikipedia.org/wiki/Ranking).
+
+**competitors** is an array of competitors
+- **score** is a score for the competitor
+
+Each competitor is assigned the `rank` property. Ties are indicated with an 'x='.
+
+#### Example
+
+    var results = [
+      { score: 10 },
+      { score: 20 },
+      { score: 20 },
+      { score: 40 }
+    ];
+    scorer.rank(results);
+    console.log(results)
+
+produces
+
+    [ { score: 10, rank: '4' },
+      { score: 20, rank: '2=' },
+      { score: 20, rank: '2=' },
+      { score: 40, rank: '1' } ]
+  
 ## scorer.matchpoints(games)
 
 Determines the match points for each pair (NS and EW) based on the played games of a single board. This is the international standard measurement of achievement in a pairs competition; wins score 2 points and ties 1 point.
