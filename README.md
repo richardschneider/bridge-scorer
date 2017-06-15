@@ -16,6 +16,7 @@ the help of [semantic release](https://github.com/semantic-release/semantic-rele
 - scores a pairs session with 
   - match points (international or North American), rank and percentage
   - IMPS (Bulter or Cross-IMPS)
+- ranking of competitors
 
 ## Getting started
 
