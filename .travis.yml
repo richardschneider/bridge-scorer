@@ -12,6 +12,7 @@ cache:
 
 before_script:
   - npm prune
+  - npm update
 
 script:
   - gulp ci
