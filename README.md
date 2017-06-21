@@ -120,7 +120,7 @@ Assigns the rank to each competitor; see [Standard competition ranking ("1224" r
 **competitors** is an array of competitors
 - **score** is a score for the competitor
 
-Each competitor is assigned the `rank` property. Ties are indicated with an 'x='.
+Each competitor is assigned the `rank` property, ties are indicated with an 'x=' and the `scale` property, a number between 0 and 1.
 
 #### Example
 
@@ -135,10 +135,10 @@ Each competitor is assigned the `rank` property. Ties are indicated with an 'x='
 
 produces
 
-    [ { score: 10, rank: '4' },
-      { score: 20, rank: '2=' },
-      { score: 20, rank: '2=' },
-      { score: 40, rank: '1' } ]
+    [ { score: 10, rank: '4', scale: 0 },
+      { score: 20, rank: '2=', scale: 0.5 },
+      { score: 20, rank: '2=', scale: 0.5 },
+      { score: 40, rank: '1', scale: 1 } ]
   
 ## scorer.matchpoints(games)
 

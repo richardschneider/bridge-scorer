@@ -35,4 +35,18 @@ describe('Rank', function() {
       expect(results[0]).to.have.property('rank', '4');
     });
 
+    it('scales the results', function() {
+      var results = [
+        { score: 10 },
+        { score: 20 },
+        { score: 20 },
+        { score: 40 }
+      ];
+      scorer.rank(results);
+      expect(results[3]).to.have.property('scale', 1);
+      expect(results[2]).to.have.property('scale', 0.5);
+      expect(results[1]).to.have.property('scale', 0.5);
+      expect(results[0]).to.have.property('scale', 0);
+    });
+
 });
