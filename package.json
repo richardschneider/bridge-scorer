@@ -39,7 +39,7 @@
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
     "mocha": "^3.4.1",
-    "pump": "^1.0.2",
+    "pump": "1.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "semantic-release": "^6.3.6"
