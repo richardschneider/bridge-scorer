@@ -42,7 +42,7 @@
     "pump": "^1.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "semantic-release": "^6.3.6"
+    "semantic-release": "^15.14.0"
   },
   "scripts": {
     "test": "mocha test",
